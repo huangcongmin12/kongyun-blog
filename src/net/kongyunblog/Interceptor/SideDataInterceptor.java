@@ -16,7 +16,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 
 /**
- * 出来边界数据
+ * 处理边界数据
  * 
  * @author huangcongmin
  * @date 2013-3-19
