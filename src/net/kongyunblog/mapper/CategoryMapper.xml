@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"     
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">     
+   
+<mapper namespace="net.kongyunblog.dao.CategoryDao">
+
+	<resultMap id="category_orm" type="Category">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="alias" column="alias"/>
+		<result property="url" column="url"/>
+		<result property="rank" column="rank"/>
+		<result property="description" column="description"/>
+		<result property="acticleNum" column="article_num"/>
+	</resultMap>
+	
+	<insert id="insert" parameterType="Category" useGeneratedKeys="true" keyProperty="id">
+		insert into 
+		category(name,alias,rank,article_num,description)
+		values(#{name},#{alias},#{rank},#{acticleNum},#{description})
+	</insert>
+	
+	<delete id="delete" parameterType="long">
+		delete from category where id=#{id}
+	</delete>
+	
+	<update id="updateURL" parameterType="Category">
+		update category 
+		set url=#{url}
+		where id=#{id}
+	</update>
+	
+	<update id="updateArticleNum" parameterType="Category">
+		update category 
+		set article_num=#{acticleNum}
+		where id=#{id}
+	</update>
+
+	
+	
+	<update id="update" parameterType="Category">
+		update category 
+		set name=#{name},description=#{description},alias=#{alias},rank=#{rank}
+		where id=#{id}
+	</update>
+	
+	<select id="selectCategory" resultMap="category_orm">
+		select * from category 
+	</select>
+	
+	<select id="selectCategoryPage" parameterType="map"  resultMap="category_orm">
+		select * from category order by id limit #{index},#{size}
+	</select>
+	
+	<select id="selectCount"  resultType="int">
+    	select count(*) from category
+  	</select>
+  	
+	<select id="selectById"  resultType="long" resultMap="category_orm">
+    	select * from category where id=#{id}
+  	</select>
+  	
+	<select id="selectCateByType"  resultType="long" resultMap="category_orm">
+    	select * from category where category.type=#{type}
+  	</select>
+  	
+</mapper>  

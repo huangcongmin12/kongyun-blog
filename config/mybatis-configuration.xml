@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	
+	<!-- 别名 -->
+	<typeAliases>
+		<typeAlias alias="Article" type="net.kongyunblog.domain.Article"/>
+		<typeAlias alias="Category" type="net.kongyunblog.domain.Category"/>
+		<typeAlias alias="Link" type="net.kongyunblog.domain.Link"/>
+		<typeAlias alias="UserFile" type="net.kongyunblog.domain.UserFile"/>
+		<typeAlias alias="Manager" type="net.kongyunblog.domain.Manager"/>
+		<typeAlias alias="Role" type="net.kongyunblog.domain.Role"/>
+	</typeAliases>
+	
+	<!-- ORM映射文件 -->
+	<mappers>
+		<mapper resource="net/kongyunblog/mapper/ArticleMapper.xml" />
+		<mapper resource="net/kongyunblog/mapper/CategoryMapper.xml" />
+		<mapper resource="net/kongyunblog/mapper/LinkMapper.xml" />
+		<mapper resource="net/kongyunblog/mapper/UserFileMapper.xml" />
+		<mapper resource="net/kongyunblog/mapper/ManagerMapper.xml" />
+		<mapper resource="net/kongyunblog/mapper/RoleMapper.xml" />
+	</mappers>
+	
+	
+</configuration> 

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"     
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">     
+   
+<mapper namespace="net.kongyunblog.dao.ArticleDao">
+
+	<resultMap id="article_orm" type="Article">
+		<id property="id" column="id"/>
+		<result property="title" column="title"/>
+		<result property="description" column="description"/>
+		<result property="content" column="content"/>
+		<result property="createTime" column="create_time"/>
+		<result property="modifyTime" column="modify_time"/>
+		<result property="alias" column="alias"/>
+		<result property="url" column="url"/>
+		<result property="viewCount" column="view_count"/>
+		<result property="commentCount" column="comment_count"/>
+		<result property="authorId" column="author_id"/>
+		<result property="cover" column="cover"/>
+		<result property="tags" column="tags"/>
+		<result property="topable" column="topable"/>
+		<association property="category" javaType="Category">
+			<id property="id" column="category_id"/>
+			<result property="name" column="category_name"/>
+			<result property="alias" column="category_alias"/>
+			<result property="url" column="category_url"/>
+			<result property="rank" column="category_rank"/>
+			<result property="description" column="category_description"/>
+			<result property="acticleNum" column="article_num"/>
+		</association>
+	</resultMap>
+	
+	<!-- 按月份对文章进行归档 -->
+	<select id="archivesByMonth" resultType="HashMap">
+		select DATE_FORMAT(create_time,"%Y-%m")  as date ,count(*) as count
+		from article 
+		group by DATE_FORMAT(create_time,"%Y-%m")
+		order by DATE_FORMAT(create_time,"%Y-%m")  desc
+	</select>
+	
+	<!-- 按月份列表 -->
+	<select id="listByMonth" parameterType="map" resultMap="article_orm">
+		select  a.id,title,a.description,content,create_time,modify_time,a.alias,a.url,view_count,comment_count,author_id,cover,tags,topable,
+			c.id     		as 	category_id,
+			c.name 			as 	category_name ,
+			c.alias 		as  category_alias,
+			c.url    		as 	category_url,
+			c.rank			as 	category_rank,
+			c.description	as 	category_description
+		 	from article a
+			left outer join category c on a.category_id = c.id
+			where DATE_FORMAT(create_time,"%Y-%m")=#{date}
+			order by a.topable desc,a.create_time desc limit #{index},#{size}
+	</select>
+	
+	<select id="getCountByMonth" parameterType="String" resultType="int">
+		select  count(*)
+		 	from article
+			where DATE_FORMAT(create_time,"%Y-%m")=#{date}
+	</select>
+	
+	<insert id="insert" parameterType="Article" useGeneratedKeys="true" keyProperty="id">
+		insert into 
+		article(title,description,content,create_time,modify_time,alias,url,author_id,cover,tags,category_id)
+		values(#{title},#{description},#{content},#{createTime},#{modifyTime},#{alias},#{url},#{authorId},#{cover},#{tags},#{category.id})
+	</insert>
+	
+	<delete id="delete" parameterType="Long">
+		delete from article where id=#{article_id}
+	</delete>
+	
+	<update id="updateUrl" parameterType="Article">
+		update article  set url=#{url} where id=#{id}
+	</update>
+	
+	<update id="updateViewCount" parameterType="Article">
+		update article  set view_count=#{viewCount} where id=#{id}
+	</update>
+	
+	<update id="update" parameterType="Article">
+		update article 
+		set title=#{title},description=#{description},content=#{content},category_id=#{category.id},tags=#{tags},modify_time=#{modifyTime} 
+		where id=#{id}
+	</update>
+	
+	<select id="selectPre" parameterType="Long" resultType="Article">
+		select  a.id,title,a.url from article a
+			where a.id  &gt;  #{id} order by id asc limit 0,1
+	</select>
+	<select id="selectAfter" parameterType="Long" resultType="Article">
+		select  a.id,title,a.url from article a
+			where a.id &lt; #{id} order by id desc limit 0,1
+	</select>
+	
+	<select id="selectActicleById" parameterType="Long" resultMap="article_orm">
+		select  a.id,title,a.description,content,create_time,modify_time,a.alias,a.url,view_count,comment_count,author_id,cover,tags,topable,
+			c.id     		as 	category_id,
+			c.name 			as 	category_name ,
+			c.alias 		as  category_alias,
+			c.url    		as 	category_url,
+			c.rank			as 	category_rank,
+			c.description	as 	category_description
+		 	from article a
+			left outer join category c on a.category_id = c.id
+			where a.id=#{id}
+	</select>
+	
+	<select id="selectByPage" parameterType="map" resultMap="article_orm">
+		select  a.id,title,a.description,content,create_time,modify_time,a.alias,a.url,view_count,comment_count,author_id,cover,tags,topable,
+			c.id     		as 	category_id,
+			c.name 			as 	category_name ,
+			c.alias 		as  category_alias,
+			c.url    		as 	category_url,
+			c.rank			as 	category_rank,
+			c.description	as 	category_description
+		 	from article a
+			left outer join category c on a.category_id = c.id
+			order by topable desc,create_time desc limit #{index},#{size}
+	</select>
+	
+	<select id="selectByNew" parameterType="int" resultMap="article_orm">
+		select  a.id,title,a.description,content,create_time,modify_time,a.alias,a.url,view_count,comment_count,author_id,cover,tags,topable,
+			c.id     		as 	category_id,
+			c.name 			as 	category_name ,
+			c.alias 		as  category_alias,
+			c.url    		as 	category_url,
+			c.rank			as 	category_rank,
+			c.description	as 	category_description
+		 	from article a
+			left outer join category c on a.category_id = c.id
+			order by create_time desc limit 0,#{size}
+	</select>
+	
+	<select id="selectByCategoryId" parameterType="map" resultMap="article_orm">
+		select  a.id,title,a.description,content,create_time,modify_time,a.alias,a.url,view_count,comment_count,author_id,cover,tags,topable,
+			c.id     		as 	category_id,
+			c.name 			as 	category_name ,
+			c.alias 		as  category_alias,
+			c.url    		as 	category_url,
+			c.rank			as 	category_rank,
+			c.description	as 	category_description
+		 	from article a
+			left outer join category c on a.category_id = c.id
+			where a.category_id=c.id and c.id=#{category_id}
+			order by create_time desc limit #{index},#{size}
+	</select>
+	
+	<select id="selectByCategoryIdCount" parameterType="Long" resultType="int">
+		select count(*) from article a
+			left outer join category c on a.category_id = c.id
+			where a.category_id=c.id and c.id=#{category_id}
+	</select>
+	
+	<select id="selectCount"  resultType="int">
+    	select count(*) from article
+  	</select>
+</mapper>  

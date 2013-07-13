@@ -1,0 +1,325 @@
+html body,body {
+	padding-top: 20px;
+	padding-bottom: 10px;
+	overflow-y: scroll;
+	*overflow-y: hidden;
+}
+/** 重设容器边框 **/
+.container {
+	width: 998px;
+	padding: 10px 10px 10px 10px;
+	margin-top: 13px;
+	margin-bottom: 30px;
+}
+
+.site-title a {
+	color: #111;
+	font-size: 30px;
+	line-height: 36px;
+	text-decoration: none;
+	font-family: cursive;
+}
+
+.mun a {
+	color: #111;
+	font-size: 18px;
+	font-family: cursive;
+}
+
+.site-description {
+	color: #7A7A7A;
+	font-size: 14px;
+}
+
+.sidebar a {
+	text-decoration: none;
+}
+
+.cur-title {
+	color: #666;
+	font-size: 10px;
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	line-height: 2.6em;
+	margin: 0 0 2.6em;
+	text-transform: uppercase;
+}
+
+.entry {
+	padding: 10px 0px;
+	border-bottom: 1px dashed #DDD;
+	position: relative;
+}
+
+.entry .time {
+	text-align: center;
+	box-shadow: inset 1px 1px 5px gray;
+	color: white;
+	background-color: #000099;
+	font-size: 12px;
+	height: 53px;
+	width: 53px;
+}
+
+.entry .time .day {
+	font: 28px/36px Georgia
+}
+
+.entry .entry-title {
+	font-size: 24px;
+	line-height: 0px;
+	border-bottom: 0px solid #08C;
+	margin-top: 0px;
+}
+
+.entry .entry-title a:link,.entry .entry-title a:visited,.entry .entry-title a:hover,.entry .entry-title a:active
+	{
+	color: #000000;
+	text-decoration: none;
+}
+
+.entry .entry-content {
+	padding: 10px;
+}
+
+.sidebar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.post .post-title {
+	text-align: center;
+	font-size: 26px;
+	font-weight: bold;
+	margin: 22px 0px;
+}
+
+.post .meta-date {
+	font-family: Georgia, serif;
+	font-size: 16px;
+	text-align: center;
+	color: #999
+}
+
+.post .content {
+	padding: 10px 0px;
+	line-height: 26px;
+}
+
+.post .content h1 {
+	color: #005884
+}
+
+.post .content h2 {
+	color: #006599
+}
+
+.post .content h3 {
+	color: #0073AD
+}
+
+.post .content h4 {
+	color: #0081C1
+}
+
+.post .content h5 {
+	color: #008ED6
+}
+
+.post .content h6 {
+	color: #009CEA
+}
+
+.comment {
+	padding: 10px 0px;
+	border-bottom: 1px dashed #DDD;
+}
+
+.comment .comment-meta {
+	background-color: #F5F4F6;
+}
+
+.comment .comment-content {
+	padding-left: 0px;
+}
+
+.comments {
+	margin-bottom: 25px;
+}
+
+#respond {
+	width: 390px;
+	padding: 10px;
+	border: 1px solid #DDD;
+	border-radius: 5px;
+}
+
+.reply-op {
+	display: none;
+}
+
+.btn-more {
+	position: absolute;
+	bottom: 8px;
+	right: 10px;
+	width: 80px;
+	height: 22px
+}
+
+.sidebar a:visited,
+.muted a:link,
+.muted a:visited,
+.sidebar .tagcloud a:link,
+.sidebar .tagcloud a:visited {
+	color: #676767;
+}
+.sidebar .tagcloud a:hover,
+.muted a:hover,
+.sidebar a:hover {
+	color: #de5f44;
+	text-decoration: none;
+}
+
+
+.footer {
+	font-size: 13px;
+}
+.main {
+	padding:10px 20px 15px 20px;
+	border-left: 1px solid #e8e8e8;
+	border-top: 1px solid #e8e8e8;
+	border-right: 1px solid #e8e8e8;
+	border-bottom: 1px solid #e8e8e8;
+}
+.show {
+	padding:12px 18px 15px 18px;
+	border-left: 1px solid #e8e8e8;
+	border-top: 1px solid #e8e8e8;
+	border-right: 1px solid #e8e8e8;
+	border-bottom: 1px solid #e8e8e8;
+}
+.article {
+	padding:0px 8px 6px 8px;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+.respond {
+	padding:6px 8px 4px 8px;
+	border-top: 1px solid #e8e8e8;
+	border-bottom: 1px solid #e8e8e8; 
+}
+.sidebar {
+	float: right;
+	width: 236px;
+	margin-bottom: 0px;
+	padding:1px 1px 0px 1px;
+/* 	border-left: 0px solid #e8e8e8; */
+/* 	background: #fafbfc; */
+}
+
+/* sidebar
+------------------------------------------ */
+.widget {
+	margin: 0 0 20px;
+	padding: 10px 0 20px;
+	border-bottom: 1px dotted  #cacaca;
+	color: #999;
+	font-size: 0.929em;
+}
+
+.widget select {
+	width: 220px;
+	margin: 5px 0;
+}
+
+.sidebar .tagcloud {
+	margin: 1.5em 0;
+}
+
+.sidebar ul {
+	list-style: none;
+	margin: 1em 0;
+	padding: 10px;
+	border: 1px solid #d9d9d9;
+	background: #fff;
+}
+
+.sidebar ul li {
+	margin: 0;
+	padding: 5px 0;
+	border-top: 1px solid #f2f2f2;
+}
+
+.sidebar ul li:first-child {
+	border-top: none;
+}
+
+.sidebar ul li a {
+	color: #505355;
+}
+
+.sidebar ul li.current-menu-item>a,.sidebar ul li.current_page_item>a,.sidebar ul li.current-cat>a,.sidebar ul li.current-menu-item>a:visited,.sidebar ul li.current_page_item>a:visited,.sidebar ul li.current-cat>a:visited
+	{
+	font-weight: bold;
+	color: #676767;
+}
+
+.sidebar a:visited,
+.sidebar .tagcloud a:link,
+.sidebar .tagcloud a:visited {
+	color: #676767;
+}
+.sidebar .tagcloud a:hover,
+.sidebar a:hover {
+	color: #de5f44;
+	text-decoration: none;
+}
+
+.sidebar ul li ul {
+	margin: 5px 0 -5px;
+	padding: 0;
+	border: none;
+}
+
+.sidebar ul ul li,.sidebar ul ul li:first-child {
+	padding-left: 20px;
+	border-top: 1px solid #f2f2f2;
+}
+
+.sidebar table a {
+	color: #de5f44;
+}
+
+.sidebar table a:hover {
+	color: #676767;
+}
+
+.sidebar form {
+	margin: 10px 0;
+	padding: 0;
+	border: none;
+	background: none;
+}
+
+.sidebar form input {
+	width: 244px;
+}
+
+.sidebar select {
+	width: 260px;
+}
+
+.content form.searchform input {
+	width: 200px;
+	margin-right: 0;
+}
+
+.content form.searchform button {
+	width: 32px;
+	height: 30px;
+	padding: 0;
+	border: none;
+	background: url("images/search-button.png") no-repeat;
+	line-height: 30px;
+}

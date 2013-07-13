@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"     
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">     
+   
+<mapper namespace="net.kongyunblog.dao.UserFileDao">
+
+	<resultMap id="userFile_orm" type="UserFile">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="description" column="description"/>
+		<result property="file" column="file"/>
+		<result property="path" column="path"/>
+		<result property="uploadTime" column="upload_time"/>
+		<result property="downloads" column="downloads"/>
+		<result property="authorId" column="author_id"/>
+		<result property="size" column="size"/>
+		<result property="tags" column="tags"/>
+		<result property="topable" column="topable"/>
+	</resultMap>
+
+	<update id="update" parameterType="UserFile">
+		update file 
+		set name=#{name},description=#{description},tags=#{tags} 
+		where id=#{id}
+	</update>
+	 
+	<insert id="insert" parameterType="UserFile">
+		insert into 
+		file(name,description,file,path,upload_time,author_id,size,tags,topable)
+		values(#{name},#{description},#{file},#{path},#{uploadTime},#{authorId},#{size},#{tags},#{topable})
+	</insert>
+	 
+	<delete id="delete" parameterType="long">
+		delete from file where id=#{id}
+	</delete>
+	 
+	 <select id="selectFileById" parameterType="long" resultMap="userFile_orm">
+		select * from file where id=#{id}
+	</select>
+	 
+  	<select id="getCount"  resultType="int">
+    	select count(*) from file
+  	</select>
+  	
+  	<select id="selectByPage" parameterType="map" resultMap="userFile_orm">
+		select * from file order by topable desc,upload_time desc limit #{index},#{size}
+	</select>
+  	
+</mapper>  
