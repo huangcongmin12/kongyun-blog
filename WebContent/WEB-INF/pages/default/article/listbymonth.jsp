@@ -52,6 +52,7 @@
 					  </li>
 					  <li class=" mun" ><a href="${pageContext.request.contextPath }/articles/list/1"><small>Article</small></a></li>
 					  <li class="mun" ><a href="${pageContext.request.contextPath }/about-me"><small>About Me</small></a></li>
+					   <li class="mun"><a	href="${pageContext.request.contextPath }/resume"><small>Resume</small></a></li>
 					</ul>
 					<form class="navbar-search pull-right">
   						<input type="text"  class="search-query span2" placeholder="搜索..."><i class="icon-search"></i>
@@ -177,7 +178,7 @@
 				<span class="pull-right"><a href="#"
 					rel="nofollow" title="返回页面顶部">↑回到顶部</a></span>
 				<div>
-					© 2013 HCM | Powered by <a style="text-decoration: none;" href="http://www.cloudfoundry.com/"><span style="color: #06CA19 ">Cloud Foundry</span></a>
+					© 2013 HCM | <span style="color: #06CA19 ">伊妹：huangcongmin12@gmail.com</span>
 				</div>
 			</div>
 			<!-- footer end -->

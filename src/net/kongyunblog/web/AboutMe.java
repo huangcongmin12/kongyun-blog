@@ -12,5 +12,10 @@ public class AboutMe {
 	public String about() {
 		return "default/about/about";
 	}
+	
+	@RequestMapping(value = "/resume", method = RequestMethod.GET)
+	public String Resume() {
+		return "default/about/resume";
+	}
 
 }

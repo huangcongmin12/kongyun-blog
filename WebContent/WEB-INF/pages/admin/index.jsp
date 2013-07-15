@@ -49,10 +49,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				更多丰富功能正在加紧开发中，相信你会满意。
 				</p>
 				<p>
-				
-				
-				
-				
 			</div>
 		</div>
 		<jsp:include page="/WEB-INF/pages/admin/footer.jsp"/>

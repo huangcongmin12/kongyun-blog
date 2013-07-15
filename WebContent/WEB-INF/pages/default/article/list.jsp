@@ -46,6 +46,7 @@
 					  </li>
 					  <li class=" mun" ><a href="${pageContext.request.contextPath }/articles/list/1"><small>Article</small></a></li>
 					  <li class="mun" ><a href="${pageContext.request.contextPath }/about-me"><small>About Me</small></a></li>
+					  <li class="mun"><a	href="${pageContext.request.contextPath }/resume"><small>Resume</small></a></li>
 					</ul>
 					<form class="navbar-search pull-right">
   						<input type="text"  class="search-query span2" placeholder="搜索..."><i class="icon-search"></i>

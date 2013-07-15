@@ -44,6 +44,9 @@
 						<li class="mun"><a
 							href="${pageContext.request.contextPath }/about-me"><small>About
 									Me</small></a></li>
+						<li class="mun"><a
+							href="${pageContext.request.contextPath }/resume"><small>Resume
+									</small></a></li>
 					</ul>
 					<form class="navbar-search pull-right">
 						<input type="text" class="search-query span2" placeholder="搜索..."><i
@@ -59,12 +62,10 @@
 			<div class="span9 show">
 				<div class="post article">
 					<div class="content">
-
 						<h3>关于我</h3>
 						<p class="text-success"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;爱编程，爱折腾， 爱不断的学习新技术。 </p>
 						<p class="text-success"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;爱音乐，爱生活，也爱篮球场上的挥汗如雨。</p>
 						<p class="text-success"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;喜欢专研，喜欢思考，喜欢研究代码。</p>
-						<p class="text-success"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有耐心，有恒心，有信心。</p>
 						<p class="text-success"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;专注Java，关注开源，崇尚技术，敬畏技术。</p>
 						<p class="text-success"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;擅长B/S系统开发，使用技术，框架：Java EE ，SpringMVC，Struts2 ，Hibernate， MyBatis等。</p>
 						<h3>软硬环境</h3>
@@ -230,9 +231,7 @@
 			<span class="pull-right"><a href="#" rel="nofollow"
 				title="返回页面顶部">↑回到顶部</a></span>
 			<div>
-				© 2013 HCM | Powered by <a style="text-decoration: none;"
-					href="http://www.cloudfoundry.com/"><span
-					style="color: #06CA19">Cloud Foundry</span></a>
+				© 2013 HCM | <span style="color: #06CA19 ">伊妹：huangcongmin12@gmail.com</span>
 			</div>
 		</div>
 		<!-- footer end -->
