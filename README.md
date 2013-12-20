@@ -1,5 +1,3 @@
-kongyun-blog
-============
 
 个人博客系统<br>
 演示地址：http://hcmin.cfapps.io<br>
